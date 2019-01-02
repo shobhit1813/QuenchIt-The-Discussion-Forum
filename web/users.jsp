@@ -133,7 +133,7 @@ and open the template in the editor.
     </head>
     <body>
         <div class="topnav">
-            <a class="active" href="#home">Home</a>
+            <a href="#home">Profile</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
             <div class="search-container">
@@ -146,7 +146,7 @@ and open the template in the editor.
         <div class ="left">
             <div class = "left-top">
                 <ol class = "nav-links">
-                    <li class="active">
+                    <li >
                         <a href="Home.html"><strong>Home</strong></a>
                     </li><br>
                  Public
@@ -154,7 +154,7 @@ and open the template in the editor.
                     <li>
                         <a href="tags.jsp">Tags</a>
                     </li><br>
-                    <li>
+                    <li class="active">
                         <a href="users.jsp"><strong>Users</strong></a>
                     </li><br>
                     <li>
