@@ -1,3 +1,11 @@
+<%-- 
+    Document   : tags
+    Created on : Jan 2, 2019, 6:48:57 PM
+    Author     : shobhit
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.

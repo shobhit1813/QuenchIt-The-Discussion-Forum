@@ -11,7 +11,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             .left{
-                width: 400px;
+                width: 200px;
                 height: 1000px;
                 background: #fff;
                 float: left;
@@ -22,7 +22,7 @@ and open the template in the editor.
                 
                 height: 1000px;
                 background: #fff;
-                margin-left: 390px;
+                margin-left: 200px;
                 margin-right: 0px;
                 
             }
@@ -53,8 +53,8 @@ and open the template in the editor.
               color: black;
             }
 
-            .topnav a.active , .topnav .left .left-top .nav-links a.active{
-              background-color: #2196F3;
+            .topnav a.active , .left .left-top .nav-links li.active{
+              background-color: grey;
               color: white;
             }
 
@@ -103,16 +103,24 @@ and open the template in the editor.
             .left-top{
                 width: 200px;
                 height: 400px;
-                margin-left: 200px;
+                margin-left: 2px;
                 margin-top: 50px;
                 
             }
+            li{
+                height: 30px;
+            }
+            
             a{
                 text-decoration: none;
             }
             .nav-links{
                 list-style: none;
             }
+            .left .left-top .nav-links li{
+                height: 25px;
+            }
+          
         </style>
     </head>
     <body>
@@ -130,8 +138,8 @@ and open the template in the editor.
         <div class ="left">
             <div class = "left-top">
                 <ol class = "nav-links">
-                    <li>
-                        <a href="Home.html" class="active"><strong>Home</strong></a>
+                    <li class="active">
+                        <a href="Home.html"><strong>Home</strong></a>
                     </li><br>
                  Public
                     <br>
