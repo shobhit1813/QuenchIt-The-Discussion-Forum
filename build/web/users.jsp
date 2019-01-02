@@ -133,7 +133,7 @@ and open the template in the editor.
     </head>
     <body>
         <div class="topnav">
-            <a href="#home">Profile</a>
+            <a href="#home"><%= request.getSession().getAttribute("uname").toString() %></a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
             <div class="search-container">
@@ -147,7 +147,7 @@ and open the template in the editor.
             <div class = "left-top">
                 <ol class = "nav-links">
                     <li >
-                        <a href="Home.html"><strong>Home</strong></a>
+                        <a href="Home.jsp"><strong>Home</strong></a>
                     </li><br>
                  Public
                     <br>

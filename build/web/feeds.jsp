@@ -1,11 +1,3 @@
-<%-- 
-    Document   : users
-    Created on : Jan 2, 2019, 6:49:30 PM
-    Author     : shobhit
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -14,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Home Page</title>
+        <title>Feeds Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
@@ -146,7 +138,7 @@ and open the template in the editor.
         <div class ="left">
             <div class = "left-top">
                 <ol class = "nav-links">
-                    <li >
+                    <li class="active">
                         <a href="Home.jsp"><strong>Home</strong></a>
                     </li><br>
                  Public
@@ -154,7 +146,7 @@ and open the template in the editor.
                     <li>
                         <a href="tags.jsp">Tags</a>
                     </li><br>
-                    <li class="active">
+                    <li>
                         <a href="users.jsp"><strong>Users</strong></a>
                     </li><br>
                     <li>

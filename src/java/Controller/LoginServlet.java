@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,12 +40,16 @@ public class LoginServlet extends HttpServlet {
         try{
             boolean flags[] = LoginDao.validate(username,pass);
                 if(flags[0]){
+                    HttpSession session = request.getSession();
+                    session.setAttribute("uname",username);
                     if(flags[1]){
+                       
                        RequestDispatcher rd = request.getRequestDispatcher("adminportal.html"); 
                        rd.forward(request,response);
                     }
                     else{
-                    RequestDispatcher rd = request.getRequestDispatcher("Home.html");
+                    
+                    RequestDispatcher rd = request.getRequestDispatcher("feeds.jsp");
                     rd.forward(request,response);
                     }
                 }

@@ -1,9 +1,11 @@
+<%-- 
+    Document   : Home
+    Created on : Jan 2, 2019, 7:35:39 PM
+    Author     : shobhit
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Home Page</title>
@@ -125,7 +127,7 @@ and open the template in the editor.
     </head>
     <body>
         <div class="topnav">
-            <a href="#home">Profile</a>
+            <a  href="#home"><%= request.getSession().getAttribute("uname").toString() %></a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
             <div class="search-container">
@@ -138,8 +140,8 @@ and open the template in the editor.
         <div class ="left">
             <div class = "left-top">
                 <ol class = "nav-links">
-                    <li class="active">
-                        <a href="Home.html"><strong>Home</strong></a>
+                    <li  class="active">
+                        <a href="Home.jsp"><strong>Home</strong></a>
                     </li><br>
                  Public
                     <br>
