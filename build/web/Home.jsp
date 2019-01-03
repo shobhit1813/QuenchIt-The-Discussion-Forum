@@ -22,6 +22,7 @@
             }
             .left{
                 position: fixed;
+                margin-top: 50px;
                 width: 200px;
                 height: 1000px;
                 background: #fff;
@@ -47,6 +48,7 @@
             .topnav {
               overflow: hidden;
               background-color: #e9e9e9;
+              position: fixed;
             }
 
             .topnav a {
@@ -163,6 +165,7 @@
              .right .grid h1 {
                 float: left;
                 width: 400px;
+                margin-top: 50px;
             }
         </style>
     </head>
