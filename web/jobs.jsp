@@ -163,6 +163,9 @@ and open the template in the editor.
                     </li><br>
                     <li class="active">
                         <a href="jobs.jsp"><strong>Jobs</strong></a>
+                    </li><br>
+                     <li>
+                        <a href="joincommunity.jsp"><strong>Join Communities</strong></a>
                     </li>
                 </ol>
             </div>

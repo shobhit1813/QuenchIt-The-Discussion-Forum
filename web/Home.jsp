@@ -181,6 +181,9 @@
                     </li><br>
                     <li>
                         <a href="jobs.jsp"><strong>Jobs</strong></a>
+                    </li><br>
+                     <li>
+                        <a href="joincommunity.jsp"><strong>Join Communities</strong></a>
                     </li>
                 </ol>
             </div>
