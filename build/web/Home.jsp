@@ -46,9 +46,12 @@
                 margin-left: -10px;
             }
             .topnav {
+              margin-top: -8px;
+              margin-left: -10px;
               overflow: hidden;
               background-color: #e9e9e9;
               position: fixed;
+              width: 100vx;
             }
 
             .topnav a {
@@ -161,6 +164,7 @@
                 float: left;
                 margin-top: 20px;
                 height: 30px;
+                margin-top: 50px;
             }
              .right .grid h1 {
                 float: left;
@@ -180,6 +184,8 @@
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
             </div>
+            <a></a><a></a><a></a><a></a><a></a><a></a>
+            <a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a> <a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a>
         </div>
         <div class ="left">
             <div class = "left-top">
