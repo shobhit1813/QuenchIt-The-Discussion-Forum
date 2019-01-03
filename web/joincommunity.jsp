@@ -1,3 +1,14 @@
+<%-- 
+    Document   : jobscommunity
+    Created on : Jan 3, 2019, 3:20:21 PM
+    Author     : shobhit
+--%>
+
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -17,6 +28,16 @@ and open the template in the editor.
                 float: left;
                 margin-left: -10px;
                 border-right: 2px solid grey;
+                position: fixed;
+                margin-top: 10px;
+            }
+            .set{
+                margin-top: 60px;
+            }
+            .grid{
+                margin-left: 50px;
+                width: 1500px;
+                height:1200px;
             }
             .right{
                 
@@ -36,6 +57,10 @@ and open the template in the editor.
             .topnav {
               overflow: hidden;
               background-color: #e9e9e9;
+              position: fixed;
+              width: 100vx;
+              margin-left: -10px;
+              margin-top: -60px;
             }
 
             .topnav a {
@@ -124,7 +149,33 @@ and open the template in the editor.
               width: 500px;
               margin-left: 150px;
             }
-          
+            .right .grid .comm{
+                float: left;
+                width: 500px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 200px;
+            }
+            .right .grid .comm1{
+                
+                margin-left: 50px;
+                float:left;
+                width: 500px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 200px;
+               
+            }
+            .fixedbutton{
+                position: fixed;
+                bottom: 0px;
+                width: 100px;
+                height: 50px;
+                color: white;
+                background: green;
+                margin-left: 700px;
+                border-radius: 10px;
+            }
         </style>
     </head>
     <body>
@@ -158,17 +209,48 @@ and open the template in the editor.
                     <li>
                         <a href="jobs.jsp"><strong>Jobs</strong></a>
                     </li><br>
-                     <li>
+                     <li class ="active">
                         <a href="joincommunity.jsp"><strong>Join Communities</strong></a>
                     </li>
                 </ol>
             </div>
         </div>
+            <form method="post" action="applyCommunityServlet">    
         <div class = "right">
-            
+            <div class ="grid">
+                <div class="set"><strong>Top Communities</strong></div><br>
+                <%
+                    try{
+                          Class.forName("com.mysql.cj.jdbc.Driver");
+                          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
+                          PreparedStatement ps = con.prepareStatement("select * from communities");
+                          ResultSet rs = ps.executeQuery();
+                          while(rs.next()){
+                %>
+                    <div class="comm">
+                        <a href="java.html"><%= rs.getString(1) %></a><br><br>
+                       <%= rs.getString(3) %><br><br>
+                       
+                       No of Users: <%= rs.getString(2) %><br><br>
+                       <input type="checkbox" nsme="community" value="<%= rs.getString(1) %>"><Strong>Apply</strong>
+                    </div><br>
+                    <%  if(rs.next()){%>
+                    <div class="comm1">
+                        <a href="java.html"><%= rs.getString(1) %></a><br><br>
+                        <%= rs.getString(3) %><br><br>
+                        No of Users: <%= rs.getString(2) %><br><br>
+                        <input type="checkbox" nsme="community" value="<%= rs.getString(1) %>"><Strong>Apply</strong>
+                    </div>
+                <%}
+                     }
+                        }
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
+                    %>
+            </div> 
         </div>
-        <div>
-            
-        </div>
+       <input type="submit" class="fixedbutton" value="Submit" name="submit">
+      </form> 
     </body>
 </html>

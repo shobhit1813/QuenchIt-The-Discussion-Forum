@@ -138,11 +138,13 @@ and open the template in the editor.
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
             </div>
+            <a></a><a></a><a></a><a></a><a></a><a></a>
+            <a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a> <a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a></a><a>
         </div>
         <div class ="left">
             <div class = "left-top">
                 <ol class = "nav-links">
-                    <li class="active">
+                    <li>
                         <a href="Home.jsp"><strong>Home</strong></a>
                     </li><br>
                  Public
