@@ -21,6 +21,7 @@
                 font-weight: 200;
             }
             .left{
+                position: fixed;
                 width: 200px;
                 height: 1000px;
                 background: #fff;
@@ -145,7 +146,15 @@
                 width: 676px;
                 height: 50px;
             }
-            
+            .ques-left{
+                float: left;
+            }
+            .ques-left2{
+                float: left;
+            }
+            .ques-left3{
+                float: left;
+            }
             .right .grid input[type=button] {
                 float: left;
                 margin-top: 20px;
@@ -206,14 +215,14 @@
                         while(rs.next()){
                      %>
                     <div class ="ques">
-                            <div>
-                                <%= rs.getString(1) %>
+                            <div class = "ques-left">
+                                &nbsp;&nbsp;&nbsp;<%= rs.getString(1) %> <br>Votes&nbsp;&nbsp;&nbsp;
                             </div>
-                            <div>
-                                 <%= rs.getString(2) %>
+                            <div class = "ques-left2">
+                                 &nbsp;&nbsp;&nbsp;<%= rs.getString(2) %> <br>Answers &nbsp;&nbsp;&nbsp;
                             </div>
-                            <div>
-                                 <%= rs.getString(3) %>
+                            <div class = "ques-left3">
+                                 &nbsp;&nbsp;&nbsp;<%= rs.getString(3) %> <br>views
                             </div>
                     </div>
                     <%
