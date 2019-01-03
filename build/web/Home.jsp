@@ -229,7 +229,7 @@
                      %>
                     <div class ="ques">
                             <div class = "ques-left4">
-                                &nbsp;<a href ="<%=rs.getString(5) %>"><%= rs.getString(4) %></a><br><%= rs.getString(6) %>
+                                <a href ="<%=rs.getString(5) %>"><%= rs.getString(4) %></a><br><%= rs.getString(6) %>
                             </div>
                             <div class = "ques-left">
                                 &nbsp;&nbsp;&nbsp;<%= rs.getString(1) %> <br>Votes&nbsp;&nbsp;&nbsp;
