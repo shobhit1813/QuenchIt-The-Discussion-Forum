@@ -12,6 +12,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
+            
+            h1{
+                font-weight: 200;
+            }
             .left{
                 width: 200px;
                 height: 1000px;
@@ -125,7 +129,28 @@
             .left .left-top .nav-links li{
                 height: 25px;
             }
-          
+            .ques {
+                float: left;
+                postion: relative;
+                border-bottom: 1px solid grey;
+                border-top: 1px solid grey;
+                width: 676px;
+                height: 100px;
+            }
+            .grid{
+                width: 676px;
+                height: 50px;
+            }
+            
+            .right .grid input[type=button] {
+                float: right;
+                margin-top: 20px;
+                margin-right: 800px;
+                height: 30px;
+            }
+             .right .grid h1 {
+                float: left;
+            }
         </style>
     </head>
     <body>
@@ -161,7 +186,20 @@
             </div>
         </div>
         <div class = "right">
-            
+            <div class = "grid">
+                <h1>Top Questions</h1>
+                <input type ="button" value = "Ask Question" name = "askques">
+                <div class = "quesdiv">
+                    <div class ="ques">
+
+                    </div>
+                    <div class ="ques">
+
+                    </div>
+                    <div class = "ques">
+                    </div>
+                </div>
+          </div>          
         </div>
         <div>
             
