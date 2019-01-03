@@ -67,7 +67,7 @@ and open the template in the editor.
             }
 
             .topnav .search-container {
-              float: right;
+              float: left;
             }
 
             .topnav input[type=text] {
@@ -128,15 +128,19 @@ and open the template in the editor.
             .left .left-top .nav-links li{
                 height: 25px;
             }
+            .topnav .search-container input[type=text] {
+              width: 500px;
+              margin-left: 150px;
+            }
           
         </style>
     </head>
     <body>
         <div class="topnav">
-            <a  href="#home"><%= request.getSession().getAttribute("uname").toString() %></a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <div class="search-container">
+             <a href="#about"></a>
+             <a href="#home"><%= request.getSession().getAttribute("uname").toString() %></a>
+            <a href="#contact"></a>
+              <div class="search-container">
               <form action="SearchServlet">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
