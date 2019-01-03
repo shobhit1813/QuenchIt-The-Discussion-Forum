@@ -222,8 +222,13 @@
                                  &nbsp;&nbsp;&nbsp;<%= rs.getString(2) %> <br>Answers &nbsp;&nbsp;&nbsp;
                             </div>
                             <div class = "ques-left3">
-                                 &nbsp;&nbsp;&nbsp;<%= rs.getString(3) %> <br>views
+                                 &nbsp;&nbsp;&nbsp;<%= rs.getString(3) %> <br>views &nbsp;&nbsp;&nbsp;
                             </div>
+                            <div class = "ques-left3">
+                                &nbsp;&nbsp;&nbsp;<a href ="<%=rs.getString(5) %>"><%= rs.getString(4) %></a> <br>
+                            </div>
+                            
+                            
                     </div>
                     <%
                           }
