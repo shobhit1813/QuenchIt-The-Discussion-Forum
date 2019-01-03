@@ -143,13 +143,13 @@
             }
             
             .right .grid input[type=button] {
-                float: right;
+                float: left;
                 margin-top: 20px;
-                margin-right: 800px;
                 height: 30px;
             }
              .right .grid h1 {
                 float: left;
+                width: 400px;
             }
         </style>
     </head>
