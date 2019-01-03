@@ -232,14 +232,14 @@ and open the template in the editor.
                        <%= rs.getString(3) %><br><br>
                        
                        No of Users: <%= rs.getString(2) %><br><br>
-                       <input type="checkbox" nsme="community" value="<%= rs.getString(1) %>"><Strong>Apply</strong>
+                       <input type="checkbox" name="community" value="<%= rs.getString(1) %>"><Strong>Apply</strong>
                     </div><br>
                     <%  if(rs.next()){%>
                     <div class="comm1">
                         <a href="java.html"><%= rs.getString(1) %></a><br><br>
                         <%= rs.getString(3) %><br><br>
                         No of Users: <%= rs.getString(2) %><br><br>
-                        <input type="checkbox" nsme="community" value="<%= rs.getString(1) %>"><Strong>Apply</strong>
+                        <input type="checkbox" name="community" value="<%= rs.getString(1) %>"><Strong>Apply</strong>
                     </div>
                 <%}
                      }
