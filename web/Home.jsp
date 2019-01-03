@@ -4,6 +4,10 @@
     Author     : shobhit
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -193,20 +197,32 @@
                 <h1>Top Questions</h1>
                 <input type ="button" value = "Ask Question" name = "askques">
                 <div class = "quesdiv">
+                 <%
+                     try{
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
+                        PreparedStatement ps = con.prepareStatement("select * from quesHome");
+                        ResultSet rs = ps.executeQuery();
+                        while(rs.next()){
+                     %>
                     <div class ="ques">
-
+                            <div>
+                                <%= rs.getString(1) %>
+                            </div>
+                            <div>
+                                 <%= rs.getString(2) %>
+                            </div>
+                            <div>
+                                 <%= rs.getString(3) %>
+                            </div>
                     </div>
-                    <div class ="ques">
-
-                    </div>
-                    <div class = "ques">
-                    </div>
-                    <div class ="ques">
-
-                    </div>
-                    <div class ="ques">
-
-                    </div>
+                    <%
+                          }
+                        }
+                        catch(Exception e){
+                            System.out.println(e);
+                        }
+                        %>        
                 </div>
           </div>          
         </div>
