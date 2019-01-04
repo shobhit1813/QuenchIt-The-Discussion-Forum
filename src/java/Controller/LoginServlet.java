@@ -47,6 +47,30 @@ public class LoginServlet extends HttpServlet {
                        RequestDispatcher rd = request.getRequestDispatcher("adminportal.html"); 
                        rd.forward(request,response);
                     }
+                    else if(flags[2]){
+                        RequestDispatcher rd = request.getRequestDispatcher("request.jsp"); 
+                       rd.forward(request,response);
+                    }
+                    else if(flags[3]){
+                        RequestDispatcher rd = request.getRequestDispatcher("javascriptCommunity.jsp"); 
+                       rd.forward(request,response);
+                    }
+                    else if(flags[4]){
+                        RequestDispatcher rd = request.getRequestDispatcher("linuxCommunity.jsp"); 
+                       rd.forward(request,response);
+                    }
+                    else if(flags[5]){
+                        RequestDispatcher rd = request.getRequestDispatcher("cppCommunity.jsp"); 
+                       rd.forward(request,response);
+                    }
+                    else if(flags[6]){
+                        RequestDispatcher rd = request.getRequestDispatcher("cCommunity.jsp"); 
+                       rd.forward(request,response);
+                    }
+                    else if(flags[7]){
+                        RequestDispatcher rd = request.getRequestDispatcher("nodeCommunity.jsp"); 
+                       rd.forward(request,response);
+                    }
                     else{
                     
                     RequestDispatcher rd = request.getRequestDispatcher("feeds.jsp");

@@ -19,8 +19,8 @@ import java.sql.ResultSet;
 public class LoginDao {
 
     public static boolean[] validate(String uname,String pass){
-       boolean status = false,adminflag = false; 
-        boolean flags[] = new boolean[2];
+       boolean status = false,adminflag = false,javaflag=false,javascriptflag=false,linuxflag=false,cppflag=false,cflag=false,nodeflag=false; 
+        boolean flags[] = new boolean[8];
        try{ 
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
@@ -32,9 +32,27 @@ public class LoginDao {
         String usertype = rs.getString("userType");
         if(usertype.equals("admin"))
             adminflag = true;
+        else if(usertype.equals("java"))
+            javaflag = true;
+        else if(usertype.equals("javascript"))
+            javascriptflag = true;
+        else if(usertype.equals("linux"))
+            linuxflag = true;
+        else if(usertype.equals("cpp"))
+            cppflag = true;
+        else if(usertype.equals("c"))
+            cflag = true;
+        else if(usertype.equals("node"))
+            nodeflag = true;
         flags[0] = status;
         flags[1] = adminflag;
-        System.out.println("chk "+status);
+        flags[2] = javaflag;
+        flags[3] = javascriptflag;
+        flags[4] = linuxflag;
+        flags[5] = cppflag;
+        flags[6] = cflag;
+        flags[7] = nodeflag;
+        //System.out.println("chk "+status);
        }
        catch(Exception e){
            System.out.println(e);
