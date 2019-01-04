@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +47,7 @@ public class RegisterServlet extends HttpServlet {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
-            PreparedStatement ps = con.prepareStatement("insert into register values(?,?,?,?,?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("insert into register values(?,?,?,?,?,?,?,?);alter table communities add column "+userName+" varchar(30);");
             ps.setString(1,fname);
             ps.setString(2,lname);
             ps.setString(3,userName);
@@ -56,9 +57,12 @@ public class RegisterServlet extends HttpServlet {
             ps.setString(7,phno);
             ps.setString(6,userType);
             
-            int i = ps.executeUpdate();
-            if(i > 0){
-                RequestDispatcher rd = request.getRequestDispatcher("login.html");
+            
+            boolean chk = ps.execute();
+            System.out.println("out "+chk+" ");
+            if(!chk){
+                System.out.println("here");
+                RequestDispatcher rd = request.getRequestDispatcher("/login.html");
                 rd.forward(request,response);
             }
         }
