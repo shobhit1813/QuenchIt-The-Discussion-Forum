@@ -37,6 +37,8 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         String username = request.getParameter("nm");
         String pass = request.getParameter("pwd");
+        HttpSession usession = request.getSession();
+        usession.setAttribute("community",username);
         try{
             boolean flags[] = LoginDao.validate(username,pass);
                 if(flags[0]){
@@ -48,7 +50,7 @@ public class LoginServlet extends HttpServlet {
                        rd.forward(request,response);
                     }
                     else if(flags[2]){
-                        RequestDispatcher rd = request.getRequestDispatcher("request.jsp"); 
+                        RequestDispatcher rd = request.getRequestDispatcher("javaCommunity.jsp"); 
                        rd.forward(request,response);
                     }
                     else if(flags[3]){

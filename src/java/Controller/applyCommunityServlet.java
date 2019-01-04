@@ -43,16 +43,17 @@ public class applyCommunityServlet extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
             for(int i=0; i < checked.length; i++){
-                  PreparedStatement ps = con.prepareStatement("update communities set "+username+"=? where name =?");
-                  ps.setString(1,"true");
-                  ps.setString(2,checked[i]);
+                  PreparedStatement ps = con.prepareStatement("insert into "+checked[i]+"com values(?);");
+                  ps.setString(1,username);
                   int c = ps.executeUpdate();
-                  if(c <= 0){
+                  if(c > 0){
+                      excflag = true;
+                  }
+                  else{
                       excflag = false;
                       break;
-                  }
-                  else excflag = true;
-            }
+                    }
+              }
             if(!excflag){
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('error');");
@@ -60,6 +61,9 @@ public class applyCommunityServlet extends HttpServlet {
                 out.println("</script>");
             }
             else{
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Response Submitted');");
+                out.println("</script>");
                 RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
                 rd.forward(request,response);
             }
