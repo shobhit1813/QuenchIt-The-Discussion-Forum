@@ -43,9 +43,9 @@ public class applyCommunityServlet extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
             for(int i=0; i < checked.length; i++){
-                  PreparedStatement ps = con.prepareStatement("update register set"+checked[i]+"=true where userName=?");
-                  ps.setString(1,username);
-                 // ps.setString(1,checked[i]);
+                  PreparedStatement ps = con.prepareStatement("update communities set "+username+"=? where name =?");
+                  ps.setString(1,"true");
+                  ps.setString(2,checked[i]);
                   int c = ps.executeUpdate();
                   if(c <= 0){
                       excflag = false;
