@@ -233,7 +233,7 @@ and open the template in the editor.
                        
                        No of Users: <%= rs.getString(2) %><br><br>
                        <input type="checkbox" name="community" value="<%= rs.getString(1) %>"><Strong>Apply</strong>
-                    </div><br>
+                    </div>
                     <%  if(rs.next()){%>
                     <div class="comm1">
                         <a href="java.html"><%= rs.getString(1) %></a><br><br>

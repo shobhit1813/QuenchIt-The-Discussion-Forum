@@ -12,6 +12,10 @@
         <servlet-name>applyCommunityServlet</servlet-name>
         <servlet-class>Controller.applyCommunityServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GrantCommunityServlet</servlet-name>
+        <servlet-class>Controller.GrantCommunityServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>applyCommunityServlet</servlet-name>
         <url-pattern>/applyCommunityServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GrantCommunityServlet</servlet-name>
+        <url-pattern>/GrantCommunityServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

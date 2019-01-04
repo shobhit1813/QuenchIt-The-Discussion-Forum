@@ -130,10 +130,30 @@
               width: 500px;
               margin-left: 150px;
             }
-          
+            .right .grid .comm{
+                
+                margin-left: 50px;
+                float:left;
+                width: 500px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 200px;
+               
+            }
+            .fixedbutton{
+                position: fixed;
+                bottom: 0px;
+                width: 200px;
+                height: 50px;
+                color: white;
+                background: green;
+                margin-left: 700px;
+                border-radius: 10px;
+            }
         </style>
     </head>
     <body>
+        <% String comm = request.getSession().getAttribute("community").toString(); %>
         <div class="topnav">
             <a href="#about"></a>
              <a href="#home"><%= request.getSession().getAttribute("uname").toString() %></a>
@@ -168,20 +188,22 @@
                 </ol>
             </div>
         </div>
+        <form method="post" action="GrantCommunityServlet">
         <div class = "right">
             <div class = "grid">
-                <h1>Top Questions</h1>
-                <input type ="button" value = "Ask Question" name = "askques">
+                <h1>Pending Requests</h1>
                 <div class = "quesdiv">
                  <%
                      try{
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
-                        PreparedStatement ps = con.prepareStatement("select * from communities where");
+                        PreparedStatement ps = con.prepareStatement("select user from "+comm+"com");
                         ResultSet rs = ps.executeQuery();
                         while(rs.next()){
                      %>         
-                    </div>
+                     <div class="comm">
+                         <input type="checkbox" name="user" value="<%= rs.getString(1) %>"><strong><%= rs.getString(1) %></strong>
+                     </div>
                     <%
                           }
                         }
@@ -192,6 +214,8 @@
                 </div>
           </div>
         </div>
+             <input type="submit" class="fixedbutton" value="Grant Permission" name="submit">
+      </form>        
         <div>
             
         </div>
