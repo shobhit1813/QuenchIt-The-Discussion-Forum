@@ -46,6 +46,7 @@ public class removeCommunityServlet extends HttpServlet {
                     int c = ps.executeUpdate();
                     if(c <= 0){
                         excflag = false;
+                        //check
                         break;
                     }
                     else
