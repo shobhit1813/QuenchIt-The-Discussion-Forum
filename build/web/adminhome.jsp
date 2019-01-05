@@ -153,8 +153,8 @@ and open the template in the editor.
                  Public
                     <br>
                     <li>
-                        <a href="tags.jsp">Tags</a>
-                    </li><br>
+                        <a href="tags.jsp">Remove user or Community</a>
+                    </li><br><br>
                     <li>
                         <a href="users.jsp"><strong>Users</strong></a>
                     </li><br>
