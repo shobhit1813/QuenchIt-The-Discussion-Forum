@@ -20,6 +20,10 @@
         <servlet-name>removeUserServlet</servlet-name>
         <servlet-class>Controller.removeUserServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>removeCommunityServlet</servlet-name>
+        <servlet-class>Controller.removeCommunityServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>removeUserServlet</servlet-name>
         <url-pattern>/removeUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>removeCommunityServlet</servlet-name>
+        <url-pattern>/removeCommunityServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
