@@ -18,7 +18,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Feeds Page</title>
+        <title>Users Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>

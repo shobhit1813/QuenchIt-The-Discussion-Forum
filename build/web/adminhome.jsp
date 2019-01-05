@@ -17,11 +17,11 @@ and open the template in the editor.
                 float: left;
                 margin-left: -10px;
                 border-right: 2px solid grey;
+                margin-top: 50px;
             }
             .right{
                 width: 100vx;
                 height: 1000px;
-                background: red;
                 margin-left: 200px;
                 margin-right: 0px;
                 
@@ -36,6 +36,9 @@ and open the template in the editor.
             .topnav {
               overflow: hidden;
               background-color: #e9e9e9;
+              position: fixed;
+              margin-left: -10px;
+              margin-top: -10px;
             }
 
             .topnav a {
