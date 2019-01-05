@@ -194,6 +194,7 @@
                 <h1>Pending Requests</h1>
                 <div class = "quesdiv">
                  <%
+                     boolean penflag = false;
                      try{
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
@@ -201,12 +202,18 @@
                         ps.setString(1,"false");
                         ResultSet rs = ps.executeQuery();
                         while(rs.next()){
+                            penflag = true;
                      %>         
                      <div class="comm">
                          <input type="checkbox" name="user" value="<%= rs.getString(1) %>"><strong><%= rs.getString(1) %></strong>
                      </div>
                     <%
                           }
+                          if(!penflag){
+                            %>
+                            <span> No pending Requests there</span>
+                            <%
+                            }
                         }
                         catch(Exception e){
                             System.out.println(e);
