@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("uname",username);
                     if(flags[1]){
                        
-                       RequestDispatcher rd = request.getRequestDispatcher("adminportal.html"); 
+                       RequestDispatcher rd = request.getRequestDispatcher("adminportal.jsp"); 
                        rd.forward(request,response);
                     }
                     else if(flags[2]){

@@ -1,21 +1,15 @@
 <%-- 
-    Document   : users
-    Created on : Jan 2, 2019, 6:49:30 PM
+    Document   : communities
+    Created on : Jan 5, 2019, 12:38:31 PM
     Author     : shobhit
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Feeds Page</title>
@@ -155,7 +149,7 @@ and open the template in the editor.
                 width: 500px;
                 border: 1px solid grey;
                 border-radius: 5px;
-                height: 150px;
+                height: 200px;
             }
             .right .grid .comm1{
                 
@@ -164,7 +158,7 @@ and open the template in the editor.
                 width: 500px;
                 border: 1px solid grey;
                 border-radius: 5px;
-                height: 150px;
+                height: 200px;
                
             }
             .fixedbutton{
@@ -222,26 +216,23 @@ and open the template in the editor.
                     try{
                           Class.forName("com.mysql.cj.jdbc.Driver");
                           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
-                          PreparedStatement ps = con.prepareStatement("select * from register where userType=?");
-                          ps.setString(1,"user");
+                          PreparedStatement ps = con.prepareStatement("select * from communities");
                           ResultSet rs = ps.executeQuery();
                           while(rs.next()){
-                              %>
-                              <br>
-                              <%
                 %>
-                <div class="comm"><br>
-                        &nbsp;&nbsp;<span>User Name:<strong><%= rs.getString(3) %></strong></span><br><br>
-                        &nbsp;&nbsp;<span>First Name<%= rs.getString(1) %></span><br><br>
-                        &nbsp;&nbsp;<span>Last Name: <%= rs.getString(2) %></span><br><br>
+                    <div class="comm">
+                        <a href="java.html"><%= rs.getString(1) %></a><br><br>
+                       <%= rs.getString(3) %><br><br>
+                       
+                       No of Users: <%= rs.getString(2) %><br><br>
                        
                     </div>
                     <%  if(rs.next()){%>
-                     <div class="comm1"><br>
-                         &nbsp;&nbsp;<span>User Name:<strong><%= rs.getString(3) %></strong></span><br><br>
-                        &nbsp;&nbsp;<span>First Name<%= rs.getString(1) %></span><br><br>
-                        &nbsp;&nbsp;<span>Last Name<%= rs.getString(2) %></span><br><br>
-                       
+                    <div class="comm1">
+                        <a href="java.html"><%= rs.getString(1) %></a><br><br>
+                        <%= rs.getString(3) %><br><br>
+                        No of Users: <%= rs.getString(2) %><br><br>
+                        
                     </div>
                 <%}
                      }
