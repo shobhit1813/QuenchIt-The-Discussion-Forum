@@ -19,7 +19,8 @@
                 float: left;
                 margin-left: -10px;
                 border-right: 2px solid grey;
-                margin-top: 50px;
+                margin-top: 0px;
+                position: fixed;
             }
             .right{
                 width: 100vx;
@@ -27,6 +28,12 @@
                 margin-left: 200px;
                 margin-right: 0px;
                 
+            }
+             .grid{
+                margin-left: 50px;
+                width: 1200px;
+                height:1200px;
+                margin-top: 50px;
             }
             .navbar{
                 width:100vx;
@@ -40,7 +47,7 @@
               background-color: #e9e9e9;
               position: fixed;
               margin-left: -10px;
-              margin-top: -10px;
+              margin-top: -60px;
             }
 
             .topnav a {
@@ -169,7 +176,25 @@
             </div>
         </div>
         <div class = "right">
-            
+            <div class="grid">
+                <strong>Remove User Or Community</strong>
+                <div class="comm">
+                    <span>
+                        Remove User
+                    </span>
+                    <p>
+                        remove a user againset any issue or illegal behaviour or post.
+                    </p>
+                </div>
+                <div class="comm1">
+                    <span>
+                        Remove Community
+                    </span>
+                    <p>
+                        remove a community against any offensive or illegal behaviour.
+                    </p>
+                </div>
+            </div>
         </div>
         <div>
             

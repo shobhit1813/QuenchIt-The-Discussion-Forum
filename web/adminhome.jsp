@@ -12,16 +12,18 @@ and open the template in the editor.
         <style>
             .left{
                 width: 200px;
-                height: 1000px;
+                height: 800px;
                 background: #fff;
                 float: left;
                 margin-left: -10px;
                 border-right: 2px solid grey;
                 margin-top: 50px;
+                position:fixed;
+                
             }
             .right{
                 width: 100vx;
-                height: 1000px;
+                height: 800px;
                 margin-left: 200px;
                 margin-right: 0px;
                 
@@ -153,7 +155,7 @@ and open the template in the editor.
                  Public
                     <br>
                     <li>
-                        <a href="tags.jsp">Remove user or Community</a>
+                        <a href="adminremovehome.jsp">Remove user or Community</a>
                     </li><br><br>
                     <li>
                         <a href="users.jsp"><strong>Users</strong></a>

@@ -24,7 +24,7 @@ and open the template in the editor.
         <style>
             .left{
                 width: 200px;
-                height: 1000px;
+                height: 700px;
                 background: #fff;
                 float: left;
                 margin-left: -10px;
@@ -38,11 +38,11 @@ and open the template in the editor.
             .grid{
                 margin-left: 50px;
                 width: 1200px;
-                height:1200px;
+                height:500px;
             }
             .right{
                 
-                height: 1000px;
+                height: 700px;
                 background: #fff;
                 margin-left: 200px;
                 margin-right: 0px;
