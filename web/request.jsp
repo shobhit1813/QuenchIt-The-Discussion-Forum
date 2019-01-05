@@ -197,7 +197,8 @@
                      try{
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
-                        PreparedStatement ps = con.prepareStatement("select user from "+comm+"com");
+                        PreparedStatement ps = con.prepareStatement("select user from "+comm+"com where status = ?");
+                        ps.setString(1,"false");
                         ResultSet rs = ps.executeQuery();
                         while(rs.next()){
                      %>         

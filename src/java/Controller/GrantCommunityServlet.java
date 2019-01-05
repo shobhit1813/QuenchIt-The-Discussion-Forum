@@ -7,6 +7,10 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,17 +34,42 @@ public class GrantCommunityServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet GrantCommunityServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet GrantCommunityServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        PrintWriter out = response.getWriter();
+        String []user = request.getParameterValues("user");
+        boolean excflag = false;
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
+           for(int i=0; i < user.length; i++){
+                PreparedStatement ps = con.prepareStatement("update "+request.getSession().getAttribute("community").toString()+"com set status=? where user =?");
+                ps.setString(1,"true");
+                ps.setString(2,user[i]);
+                int c= ps.executeUpdate();
+                if(c > 0){
+                    excflag = true;
+                }
+                else{
+                    excflag = false;
+                    break;
+                }
+           }
+                if(excflag){
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("alert('Response Submitted');");
+                    out.println("</script>");
+                    RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
+                    rd.forward(request,response);
+                }
+                else{
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("alert('error in updating');");
+                    out.println("location='request.jsp';");
+                    out.println("</script>");
+                }
+           
+        }
+        catch(Exception e){
+            System.out.println(e);
         }
     }
 
