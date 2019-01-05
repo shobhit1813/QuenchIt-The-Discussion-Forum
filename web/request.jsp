@@ -222,7 +222,9 @@
                 </div>
           </div>
         </div>
+             <% if(penflag){     %> 
              <input type="submit" class="fixedbutton" value="Grant Permission" name="submit">
+                <% } %>     
       </form>        
         <div>
             
