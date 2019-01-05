@@ -54,23 +54,23 @@ public class LoginServlet extends HttpServlet {
                        rd.forward(request,response);
                     }
                     else if(flags[3]){
-                        RequestDispatcher rd = request.getRequestDispatcher("javascriptCommunity.jsp"); 
+                        RequestDispatcher rd = request.getRequestDispatcher("javaCommunity.jsp"); 
                        rd.forward(request,response);
                     }
                     else if(flags[4]){
-                        RequestDispatcher rd = request.getRequestDispatcher("linuxCommunity.jsp"); 
+                        RequestDispatcher rd = request.getRequestDispatcher("javaCommunity.jsp"); 
                        rd.forward(request,response);
                     }
                     else if(flags[5]){
-                        RequestDispatcher rd = request.getRequestDispatcher("cppCommunity.jsp"); 
+                        RequestDispatcher rd = request.getRequestDispatcher("javaCommunity.jsp"); 
                        rd.forward(request,response);
                     }
                     else if(flags[6]){
-                        RequestDispatcher rd = request.getRequestDispatcher("cCommunity.jsp"); 
+                        RequestDispatcher rd = request.getRequestDispatcher("javaCommunity.jsp"); 
                        rd.forward(request,response);
                     }
                     else if(flags[7]){
-                        RequestDispatcher rd = request.getRequestDispatcher("nodeCommunity.jsp"); 
+                        RequestDispatcher rd = request.getRequestDispatcher("javaCommunity.jsp"); 
                        rd.forward(request,response);
                     }
                     else{
