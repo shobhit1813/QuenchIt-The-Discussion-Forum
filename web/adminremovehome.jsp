@@ -1,18 +1,14 @@
 <%-- 
-    Document   : communities
-    Created on : Jan 5, 2019, 12:38:31 PM
+    Document   : adminremovehome
+    Created on : Jan 5, 2019, 2:31:09 PM
     Author     : shobhit
 --%>
 
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Communities Page</title>
+        <title>Admin Home Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
@@ -23,21 +19,11 @@
                 float: left;
                 margin-left: -10px;
                 border-right: 2px solid grey;
-                position: fixed;
-                margin-top: -2px;
-            }
-            .set{
-                margin-top: 60px;
-            }
-            .grid{
-                margin-left: 50px;
-                width: 1200px;
-                height:1200px;
+                margin-top: 50px;
             }
             .right{
-                
+                width: 100vx;
                 height: 1000px;
-                background: #fff;
                 margin-left: 200px;
                 margin-right: 0px;
                 
@@ -53,9 +39,8 @@
               overflow: hidden;
               background-color: #e9e9e9;
               position: fixed;
-              width: 100vx;
               margin-left: -10px;
-              margin-top: -60px;
+              margin-top: -10px;
             }
 
             .topnav a {
@@ -76,6 +61,7 @@
             .topnav a.active , .left .left-top .nav-links li.active{
               background-color: grey;
               color: white;
+              height:35px;
             }
 
             .topnav .search-container {
@@ -144,33 +130,7 @@
               width: 500px;
               margin-left: 150px;
             }
-            .right .grid .comm{
-                float: left;
-                width: 500px;
-                border: 1px solid grey;
-                border-radius: 5px;
-                height: 200px;
-            }
-            .right .grid .comm1{
-                
-                margin-left: 50px;
-                float:left;
-                width: 500px;
-                border: 1px solid grey;
-                border-radius: 5px;
-                height: 200px;
-               
-            }
-            .fixedbutton{
-                position: fixed;
-                bottom: 0px;
-                width: 100px;
-                height: 50px;
-                color: white;
-                background: green;
-                margin-left: 700px;
-                border-radius: 10px;
-            }
+          
         </style>
     </head>
     <body>
@@ -195,54 +155,24 @@
                     </li><br>
                  Public
                     <br>
-                    <li>
+                    <li class="active">
                         <a href="adminremovehome.jsp">Remove user or Community</a>
                     </li><br><br>
                     <li>
                         <a href="users.jsp"><strong>Users</strong></a>
                     </li><br>
-                    <li class="active">
+                    <li>
                         <a href="communities.jsp"><strong>Communities</strong></a>
                     </li><br>
-                     
+                  
                 </ol>
             </div>
         </div>
-           
         <div class = "right">
-            <div class ="grid">
-                <div class="set"><strong>Top Communities</strong></div><br>
-                <%
-                    try{
-                          Class.forName("com.mysql.cj.jdbc.Driver");
-                          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
-                          PreparedStatement ps = con.prepareStatement("select * from communities");
-                          ResultSet rs = ps.executeQuery();
-                          while(rs.next()){
-                %>
-                    <div class="comm">
-                        <a href="java.html"><%= rs.getString(1) %></a><br><br>
-                       <%= rs.getString(3) %><br><br>
-                       
-                       No of Users: <%= rs.getString(2) %><br><br>
-                       
-                    </div>
-                    <%  if(rs.next()){%>
-                    <div class="comm1">
-                        <a href="java.html"><%= rs.getString(1) %></a><br><br>
-                        <%= rs.getString(3) %><br><br>
-                        No of Users: <%= rs.getString(2) %><br><br>
-                        
-                    </div>
-                <%}
-                     }
-                        }
-                    catch(Exception e){
-                        System.out.println(e);
-                    }
-                    %>
-            </div> 
+            
+        </div>
+        <div>
+            
         </div>
     </body>
 </html>
-
