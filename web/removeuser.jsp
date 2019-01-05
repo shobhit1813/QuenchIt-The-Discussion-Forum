@@ -79,6 +79,7 @@
             .topnav a.active , .left .left-top .nav-links li.active{
               background-color: grey;
               color: white;
+              height: 50px;
             }
 
             .topnav .search-container {
@@ -136,9 +137,11 @@
             
             a{
                 text-decoration: none;
+                
             }
-            .nav-links{
+            .nav-links ,.list{
                 list-style: none;
+                margin: 0 0 3px 0;
             }
             .left .left-top .nav-links li{
                 height: 25px;
@@ -223,19 +226,21 @@
                           ResultSet rs = ps.executeQuery();
                           while(rs.next()){
                 %>
+                <ol class="list">  
                     <div class="comm"><br>
-                        &nbsp;&nbsp;<span>User Name: <strong><%= rs.getString(3) %></strong></span><br><br>
-                        &nbsp;&nbsp;First Name: <%= rs.getString(1) %><br><br>
-                        &nbsp;&nbsp;Last Name:  <%= rs.getString(2) %><br><br>
-                        <input type="checkbox" name="user" value="<%=rs.getString(3) %>"><strong>Remove</strong>
-                    </div>
-                    <%  if(rs.next()){%>
-                    <div class="comm1"><br>
-                         &nbsp;&nbsp;<span>User Name: <strong><%= rs.getString(3) %></strong></span><br><br>
-                        &nbsp;&nbsp;First Name: <%= rs.getString(1) %><br><br>
-                        &nbsp;&nbsp;Last Name:  <%= rs.getString(2) %><br><br>
-                        <input type="checkbox" name="user" value="<%=rs.getString(3) %>"><strong>Remove</strong>
-                    </div>
+                            &nbsp;&nbsp;<span>User Name: <strong><%= rs.getString(3) %></strong></span><br><br>
+                            &nbsp;&nbsp;First Name: <%= rs.getString(1) %><br><br>
+                            &nbsp;&nbsp;Last Name:  <%= rs.getString(2) %><br><br>
+                            <input type="checkbox" name="user" value="<%=rs.getString(3) %>"><strong>Remove</strong>
+                        </div>
+                        <%  if(rs.next()){%>
+                        <div class="comm1"><br>
+                             &nbsp;&nbsp;<span>User Name: <strong><%= rs.getString(3) %></strong></span><br><br>
+                            &nbsp;&nbsp;First Name: <%= rs.getString(1) %><br><br>
+                            &nbsp;&nbsp;Last Name:  <%= rs.getString(2) %><br><br>
+                            <input type="checkbox" name="user" value="<%=rs.getString(3) %>"><strong>Remove</strong>
+                        </div>
+                    </ol>  
                 <%}
                      }
                         }
