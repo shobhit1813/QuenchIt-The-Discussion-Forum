@@ -19,9 +19,9 @@ and open the template in the editor.
                 border-right: 2px solid grey;
             }
             .right{
-                
+                width: 100vx;
                 height: 1000px;
-                background: #fff;
+                background: red;
                 margin-left: 200px;
                 margin-right: 0px;
                 
@@ -144,7 +144,7 @@ and open the template in the editor.
         <div class ="left">
             <div class = "left-top">
                 <ol class = "nav-links">
-                    <li>
+                    <li class="active">
                         <a href="adminhome.jsp"><strong>Home</strong></a>
                     </li><br>
                  Public

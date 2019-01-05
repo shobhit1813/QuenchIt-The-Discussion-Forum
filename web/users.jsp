@@ -30,14 +30,14 @@ and open the template in the editor.
                 margin-left: -10px;
                 border-right: 2px solid grey;
                 position: fixed;
-                margin-top: 10px;
+                margin-top: -2px;
             }
             .set{
                 margin-top: 60px;
             }
             .grid{
                 margin-left: 50px;
-                width: 1500px;
+                width: 1200px;
                 height:1200px;
             }
             .right{
@@ -204,10 +204,10 @@ and open the template in the editor.
                     <li>
                         <a href="tags.jsp">Tags</a>
                     </li><br>
-                    <li>
+                    <li class="active">
                         <a href="users.jsp"><strong>Users</strong></a>
                     </li><br>
-                    <li class="active">
+                    <li>
                         <a href="communities.jsp"><strong>Communities</strong></a>
                     </li><br>
                      
