@@ -1,39 +1,49 @@
 <%-- 
-    Document   : adminremovehome
-    Created on : Jan 5, 2019, 2:31:09 PM
+    Document   : removeuser
+    Created on : Jan 5, 2019, 3:27:59 PM
     Author     : shobhit
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+
+<!DOCTYPE html>
+
 <html>
     <head>
-        <title>Admin Home Page</title>
+        <title>Remove Users</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             .left{
                 width: 200px;
-                height: 1000px;
+                height: 700px;
                 background: #fff;
                 float: left;
                 margin-left: -10px;
                 border-right: 2px solid grey;
-                margin-top: -25px;
                 position: fixed;
+                margin-top: 10px;
             }
-            .right{
-                width: 100vx;
-                height: 1000px;
-                margin-left: 200px;
-                margin-top: 80px;
-                
+            .set{
+                margin-top: 60px;
             }
-             .grid{
+            .grid{
                 margin-left: 50px;
                 width: 1200px;
                 height:500px;
-                margin-top: 80px;
+            }
+            .right{
+                
+                height: 700px;
+                background: #fff;
+                margin-left: 200px;
+                margin-right: 0px;
+                
             }
             .navbar{
                 width:100vx;
@@ -46,8 +56,9 @@
               overflow: hidden;
               background-color: #e9e9e9;
               position: fixed;
+              width: 100vx;
               margin-left: -10px;
-              margin-top: -80px;
+              margin-top: -60px;
             }
 
             .topnav a {
@@ -68,7 +79,6 @@
             .topnav a.active , .left .left-top .nav-links li.active{
               background-color: grey;
               color: white;
-              height:35px;
             }
 
             .topnav .search-container {
@@ -137,12 +147,12 @@
               width: 500px;
               margin-left: 150px;
             }
-             .right .grid .comm{
+            .right .grid .comm{
                 float: left;
                 width: 500px;
                 border: 1px solid grey;
                 border-radius: 5px;
-                height: 150px;
+                height: 200px;
             }
             .right .grid .comm1{
                 
@@ -151,8 +161,18 @@
                 width: 500px;
                 border: 1px solid grey;
                 border-radius: 5px;
-                height: 150px;
+                height: 200px;
                
+            }
+            .fixedbutton{
+                position: fixed;
+                bottom: 0px;
+                width: 100px;
+                height: 50px;
+                color: white;
+                background: green;
+                margin-left: 700px;
+                border-radius: 10px;
             }
         </style>
     </head>
@@ -173,7 +193,7 @@
         <div class ="left">
             <div class = "left-top">
                 <ol class = "nav-links">
-                    <li>
+                   <li>
                         <a href="adminhome.jsp"><strong>Home</strong></a>
                     </li><br>
                  Public
@@ -187,33 +207,45 @@
                     <li>
                         <a href="communities.jsp"><strong>Communities</strong></a>
                     </li><br>
-                  
                 </ol>
             </div>
         </div>
+            <form method="post" action="removeUserServlet">    
         <div class = "right">
-            <div class="grid">
-                
-                <div class="comm">
-                    <span><br>
-                        <a href="removeuser.jsp">&nbsp;&nbsp;<strong>Remove User</strong></a>
-                    </span>
-                    <p>
-                        &nbsp;&nbsp;remove a user againset any issue or illegal behaviour or post.
-                    </p>
-                </div>
-                <div class="comm1">
-                    <span><br>
-                        <a href="removecommunity.jsp">&nbsp;&nbsp;<strong>Remove Community</strong></a>
-                    </span>
-                    <p>
-                        &nbsp;&nbsp;remove a community against any offensive or illegal behaviour.
-                    </p>
-                </div>
-            </div>
+            <div class ="grid">
+                <div class="set"><strong>Select Users to Remove</strong></div><br>
+                <%
+                    try{
+                          Class.forName("com.mysql.cj.jdbc.Driver");
+                          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
+                          PreparedStatement ps = con.prepareStatement("select * from register where userType=?");
+                          ps.setString(1, "user");
+                          ResultSet rs = ps.executeQuery();
+                          while(rs.next()){
+                %>
+                    <div class="comm"><br>
+                        &nbsp;&nbsp;<span>User Name: <strong><%= rs.getString(3) %></strong></span><br><br>
+                        &nbsp;&nbsp;First Name: <%= rs.getString(1) %><br><br>
+                        &nbsp;&nbsp;Last Name:  <%= rs.getString(2) %><br><br>
+                        <input type="checkbox" name="user" value="user"><strong>Remove</strong>
+                    </div>
+                    <%  if(rs.next()){%>
+                    <div class="comm1"><br>
+                         &nbsp;&nbsp;<span>User Name: <strong><%= rs.getString(3) %></strong></span><br><br>
+                        &nbsp;&nbsp;First Name: <%= rs.getString(1) %><br><br>
+                        &nbsp;&nbsp;Last Name:  <%= rs.getString(2) %><br><br>
+                        <input type="checkbox" name="user" value="user"><strong>Remove</strong>
+                    </div>
+                <%}
+                     }
+                        }
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
+                    %>
+            </div> 
         </div>
-        <div>
-            
-        </div>
+       <input type="submit" class="fixedbutton" value="Submit" name="submit">
+      </form> 
     </body>
 </html>

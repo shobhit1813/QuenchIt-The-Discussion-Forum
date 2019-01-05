@@ -19,21 +19,21 @@
                 float: left;
                 margin-left: -10px;
                 border-right: 2px solid grey;
-                margin-top: 0px;
+                margin-top: -25px;
                 position: fixed;
             }
             .right{
                 width: 100vx;
                 height: 1000px;
                 margin-left: 200px;
-                margin-right: 0px;
+                margin-top: 80px;
                 
             }
              .grid{
                 margin-left: 50px;
                 width: 1200px;
-                height:1200px;
-                margin-top: 50px;
+                height:500px;
+                margin-top: 80px;
             }
             .navbar{
                 width:100vx;
@@ -47,7 +47,7 @@
               background-color: #e9e9e9;
               position: fixed;
               margin-left: -10px;
-              margin-top: -60px;
+              margin-top: -80px;
             }
 
             .topnav a {
@@ -137,7 +137,23 @@
               width: 500px;
               margin-left: 150px;
             }
-          
+             .right .grid .comm{
+                float: left;
+                width: 500px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 150px;
+            }
+            .right .grid .comm1{
+                
+                margin-left: 50px;
+                float:left;
+                width: 500px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 150px;
+               
+            }
         </style>
     </head>
     <body>
@@ -177,21 +193,21 @@
         </div>
         <div class = "right">
             <div class="grid">
-                <strong>Remove User Or Community</strong>
+                
                 <div class="comm">
-                    <span>
-                        Remove User
+                    <span><br>
+                        <a href="removeuser.jsp">&nbsp;&nbsp;<strong>Remove User</strong></a>
                     </span>
                     <p>
-                        remove a user againset any issue or illegal behaviour or post.
+                        &nbsp;&nbsp;remove a user againset any issue or illegal behaviour or post.
                     </p>
                 </div>
                 <div class="comm1">
-                    <span>
-                        Remove Community
+                    <span><br>
+                        <a href="removecommunity.jsp">&nbsp;&nbsp;<strong>Remove Community</strong></a>
                     </span>
                     <p>
-                        remove a community against any offensive or illegal behaviour.
+                        &nbsp;&nbsp;remove a community against any offensive or illegal behaviour.
                     </p>
                 </div>
             </div>
