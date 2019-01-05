@@ -55,13 +55,13 @@ public class removeUserServlet extends HttpServlet {
                   out.println("<script type=\"text/javascript\">");
                 out.println("alert('Response Submitted');");
                 out.println("</script>");
-                RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("adminremovehome.jsp");
                 rd.forward(request,response);
               }
               else{
                    out.println("<script type=\"text/javascript\">");
                    out.println("alert('error');");
-                   out.println("location='joincommunity.jsp';");
+                   out.println("location='removeuser.jsp';");
                    out.println("</script>");
               }
         }

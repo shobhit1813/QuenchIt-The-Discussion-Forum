@@ -227,7 +227,7 @@
                         &nbsp;&nbsp;<span>User Name: <strong><%= rs.getString(3) %></strong></span><br><br>
                         &nbsp;&nbsp;First Name: <%= rs.getString(1) %><br><br>
                         &nbsp;&nbsp;Last Name:  <%= rs.getString(2) %><br><br>
-                        <input type="checkbox" name="user" value="user"><strong>Remove</strong>
+                        <input type="checkbox" name="user" value="<%=rs.getString(3) %>"><strong>Remove</strong>
                     </div>
                     <%  if(rs.next()){%>
                     <div class="comm1"><br>
