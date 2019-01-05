@@ -24,7 +24,9 @@ body{
         
         
 }
-
+.lines{
+    font-size: 18px;
+}
 .avatar{
     width: 100px;
     height: 100px;

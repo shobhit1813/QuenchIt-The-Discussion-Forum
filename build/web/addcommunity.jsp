@@ -1,29 +1,43 @@
+<%-- 
+    Document   : addcommunity
+    Created on : Jan 5, 2019, 5:20:10 PM
+    Author     : shobhit
+--%>
+
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>Admin Home Page</title>
+        <title>Add Community</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             .left{
                 width: 200px;
-                height: 800px;
+                height: 700px;
                 background: #fff;
                 float: left;
                 margin-left: -10px;
                 border-right: 2px solid grey;
-                margin-top: 50px;
-                position:fixed;
-                
+                position: fixed;
+                margin-top: 10px;
+            }
+            .set{
+                margin-top: 60px;
+            }
+            .grid{
+                margin-left: 50px;
+                width: 1200px;
+                height:500px;
             }
             .right{
-                width: 100vx;
-                height: 800px;
+                
+                height: 700px;
+                background: #fff;
                 margin-left: 200px;
                 margin-right: 0px;
                 
@@ -39,8 +53,9 @@ and open the template in the editor.
               overflow: hidden;
               background-color: #e9e9e9;
               position: fixed;
+              width: 100vx;
               margin-left: -10px;
-              margin-top: -10px;
+              margin-top: -60px;
             }
 
             .topnav a {
@@ -61,6 +76,7 @@ and open the template in the editor.
             .topnav a.active , .left .left-top .nav-links li.active{
               background-color: grey;
               color: white;
+              height: 50px;
             }
 
             .topnav .search-container {
@@ -118,9 +134,11 @@ and open the template in the editor.
             
             a{
                 text-decoration: none;
+                
             }
-            .nav-links{
+            .nav-links ,.list{
                 list-style: none;
+                margin: 0 0 3px 0;
             }
             .left .left-top .nav-links li{
                 height: 25px;
@@ -129,7 +147,33 @@ and open the template in the editor.
               width: 500px;
               margin-left: 150px;
             }
-          
+            .right .grid .comm{
+                float: left;
+                width: 500px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 200px;
+            }
+            .right .grid .comm1{
+                
+                margin-left: 50px;
+                float:left;
+                width: 500px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 200px;
+               
+            }
+            .fixedbutton{
+                position: fixed;
+                bottom: 0px;
+                width: 100px;
+                height: 50px;
+                color: white;
+                background: green;
+                margin-left: 700px;
+                border-radius: 10px;
+            }
         </style>
     </head>
     <body>
@@ -149,32 +193,64 @@ and open the template in the editor.
         <div class ="left">
             <div class = "left-top">
                 <ol class = "nav-links">
-                    <li class="active">
+                   <li>
                         <a href="adminhome.jsp"><strong>Home</strong></a>
                     </li><br>
                  Public
                     <br>
-                    <li>
+                    <li >
                         <a href="adminremovehome.jsp">Remove user or Community</a>
                     </li><br><br>
                     <li>
                         <a href="users.jsp"><strong>Users</strong></a>
                     </li><br>
-                    <li>
+                    <li class="active">
                         <a href="addcommunity.jsp"><strong>Requests</strong></a>
                     </li><br>
                     <li>
                         <a href="communities.jsp"><strong>Communities</strong></a>
                     </li><br>
-                  
                 </ol>
             </div>
         </div>
+            <form method="post" action="addCommunityServlet">    
         <div class = "right">
-            
+            <div class ="grid">
+                <div class="set"><strong>Select Community to Grant Permission</strong></div><br>
+                <%
+                    try{
+                          Class.forName("com.mysql.cj.jdbc.Driver");
+                          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
+                          PreparedStatement ps = con.prepareStatement("select * from communities where status=?");
+                          ps.setString(1,"false");
+                          ResultSet rs = ps.executeQuery();
+                          while(rs.next()){
+                %>
+                <ol class="list">  
+                    <div class="comm"><br>
+                            &nbsp;&nbsp;<span>Community Name: <strong><%= rs.getString(1) %></strong></span><br><br>
+                            &nbsp;&nbsp;No Of Users: <%= rs.getString(2) %><br><br>
+                            &nbsp;&nbsp;Description:  <%= rs.getString(3) %><br><br>
+                            <input type="checkbox" name="community" value="<%=rs.getString(1) %>"><strong>ADD</strong>
+                        </div>
+                        <%  if(rs.next()){%>
+                        <div class="comm1"><br>
+                             &nbsp;&nbsp;<span>Community Name: <strong><%= rs.getString(1) %></strong></span><br><br>
+                            &nbsp;&nbsp;No Of Users: <%= rs.getString(2) %><br><br>
+                            &nbsp;&nbsp;Description:  <%= rs.getString(3) %><br><br>
+                            <input type="checkbox" name="community" value="<%=rs.getString(1) %>"><strong>ADD</strong>
+                        </div>
+                    </ol>  
+                <%}
+                     }
+                        }
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
+                    %>
+            </div> 
         </div>
-        <div>
-            
-        </div>
+       <input type="submit" class="fixedbutton" value="Grant Permission" name="submit">
+      </form> 
     </body>
 </html>

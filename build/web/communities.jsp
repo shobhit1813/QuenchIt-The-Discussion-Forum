@@ -201,6 +201,9 @@
                     <li>
                         <a href="users.jsp"><strong>Users</strong></a>
                     </li><br>
+                    <li>
+                        <a href="addcommunity.jsp"><strong>Requests</strong></a>
+                    </li><br>
                     <li class="active">
                         <a href="communities.jsp"><strong>Communities</strong></a>
                     </li><br>
