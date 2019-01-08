@@ -155,13 +155,13 @@
                         <a href="request.jsp"><strong>Requests</strong></a>
                     </li><br>
                     <li>
-                        <a href="tags.jsp">Tags</a>
+                        <a href="Commtags.jsp">Tags</a>
                     </li><br>
                     <li>
                         <a href="members.jsp"><strong>Your Members</strong></a>
                     </li><br>
                     <li>
-                        <a href="jobs.jsp"><strong>Jobs</strong></a>
+                        <a href="Commjobs.jsp"><strong>Jobs</strong></a>
                     </li><br>
                      
                 </ol>

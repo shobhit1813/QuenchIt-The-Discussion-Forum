@@ -1,10 +1,16 @@
 <%-- 
-    Document   : javaCommunity
-    Created on : Jan 4, 2019, 11:55:30 AM
+    Document   : Commjobs
+    Created on : Jan 8, 2019, 10:37:32 AM
     Author     : shobhit
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%-- 
+    Document   : javaCommunity
+    Created on : Jan 4, 2019, 11:55:30 AM
+    Author     : shobhit
+--%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -158,9 +164,9 @@
                         <a href="Commtags.jsp">Tags</a>
                     </li><br>
                     <li>
-                        <a href="members.jsp"><strong>Your Members</strong></a>
+                        <a href="Commuser.jsp"><strong>Your Members</strong></a>
                     </li><br>
-                    <li>
+                    <li class="active">
                         <a href="Commjobs.jsp"><strong>Jobs</strong></a>
                     </li><br>
                      

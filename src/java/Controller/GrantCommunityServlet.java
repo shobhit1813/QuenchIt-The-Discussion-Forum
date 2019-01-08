@@ -57,7 +57,7 @@ public class GrantCommunityServlet extends HttpServlet {
                     out.println("<script type=\"text/javascript\">");
                     out.println("alert('Response Submitted');");
                     out.println("</script>");
-                    RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("communityhome.jsp");
                     rd.forward(request,response);
                 }
                 else{

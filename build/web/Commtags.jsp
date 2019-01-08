@@ -1,10 +1,18 @@
 <%-- 
+    Document   : Commtags
+    Created on : Jan 8, 2019, 10:37:20 AM
+    Author     : shobhit
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%-- 
     Document   : javaCommunity
     Created on : Jan 4, 2019, 11:55:30 AM
     Author     : shobhit
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -154,15 +162,13 @@
                     <li>
                         <a href="request.jsp"><strong>Requests</strong></a>
                     </li><br>
-                    <li>
+                    <li class="active">
                         <a href="Commtags.jsp">Tags</a>
                     </li><br>
                     <li>
-                        <a href="members.jsp"><strong>Your Members</strong></a>
+                        <a href="Commuser.jsp"><strong>Your Members</strong></a>
                     </li><br>
-                    <li>
-                        <a href="Commjobs.jsp"><strong>Jobs</strong></a>
-                    </li><br>
+                    
                      
                 </ol>
             </div>

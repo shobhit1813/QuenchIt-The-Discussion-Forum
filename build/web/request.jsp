@@ -171,19 +171,20 @@
             <div class = "left-top">
                 <ol class = "nav-links">
                     <li>
-                        <a href="Home.jsp"><strong>Home</strong></a>
+                        <a href="communityhome.jsp"><strong>Home</strong></a>
                     </li><br>
                  Public
                     <br>
-                    <li>
-                        <a href="tags.jsp">Tags</a>
+                    <li class="active">
+                        <a href="request.jsp"><strong>Requests</strong></a>
                     </li><br>
                     <li>
-                        <a href="users.jsp"><strong>Users</strong></a>
+                        <a href="Commtags.jsp">Tags</a>
                     </li><br>
                     <li>
-                        <a href="jobs.jsp"><strong>Jobs</strong></a>
+                        <a href="Commuser.jsp"><strong>Your Members</strong></a>
                     </li><br>
+                    
                      
                 </ol>
             </div>

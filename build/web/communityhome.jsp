@@ -1,10 +1,18 @@
 <%-- 
+    Document   : communityhome
+    Created on : Jan 8, 2019, 10:40:46 AM
+    Author     : shobhit
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<%-- 
     Document   : javaCommunity
     Created on : Jan 4, 2019, 11:55:30 AM
     Author     : shobhit
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -146,7 +154,7 @@
         <div class ="left">
             <div class = "left-top">
                 <ol class = "nav-links">
-                    <li>
+                    <li class="active">
                         <a href="communityhome.jsp"><strong>Home</strong></a>
                     </li><br>
                  Public
@@ -158,7 +166,7 @@
                         <a href="Commtags.jsp">Tags</a>
                     </li><br>
                     <li>
-                        <a href="members.jsp"><strong>Your Members</strong></a>
+                        <a href="Commuser.jsp"><strong>Your Members</strong></a>
                     </li><br>
                     <li>
                         <a href="Commjobs.jsp"><strong>Jobs</strong></a>
