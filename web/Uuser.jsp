@@ -1,38 +1,42 @@
 <%-- 
-    Document   : Home
-    Created on : Jan 2, 2019, 7:35:39 PM
+    Document   : Uuser.jsp
+    Created on : Jan 8, 2019, 10:13:04 AM
     Author     : shobhit
 --%>
 
-<%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home Page</title>
+        <title>Users Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            
-            h1{
-                font-weight: 200;
-            }
             .left{
-                position: fixed;
-                margin-top: 50px;
                 width: 200px;
-                height: 1000px;
+                height: 700px;
                 background: #fff;
                 float: left;
                 margin-left: -10px;
                 border-right: 2px solid grey;
+                position: fixed;
+                margin-top: -2px;
+            }
+            .set{
+                margin-top: 60px;
+            }
+            .grid{
+                margin-left: 50px;
+                width: 1200px;
+                height:500px;
             }
             .right{
                 
-                height: 1000px;
+                height: 700px;
                 background: #fff;
                 margin-left: 200px;
                 margin-right: 0px;
@@ -46,12 +50,12 @@
                 margin-left: -10px;
             }
             .topnav {
-              margin-top: -8px;
-              margin-left: -10px;
               overflow: hidden;
               background-color: #e9e9e9;
               position: fixed;
               width: 100vx;
+              margin-left: -10px;
+              margin-top: -60px;
             }
 
             .topnav a {
@@ -99,10 +103,7 @@
             .topnav .search-container button:hover {
               background: #ccc;
             }
-            .topnav .search-container input[type=text] {
-              width: 500px;
-              margin-left: 150px;
-            }
+
             @media screen and (max-width: 600px) {
               .topnav .search-container {
                 float: none;
@@ -139,50 +140,45 @@
             .left .left-top .nav-links li{
                 height: 25px;
             }
-            .ques {
-                float: left;
-                postion: relative;
-                border-bottom: 1px solid grey;
-                border-top: 1px solid grey;
-                width: 800px;
-                height: 100px;
+            .topnav .search-container input[type=text] {
+              width: 500px;
+              margin-left: 150px;
             }
-            .grid{
-                width: 676px;
+            .right .grid .comm{
+                float: left;
+                width: 500px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 150px;
+            }
+            .right .grid .comm1{
+                
+                margin-left: 50px;
+                float:left;
+                width: 500px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 150px;
+               
+            }
+            .fixedbutton{
+                position: fixed;
+                bottom: 0px;
+                width: 100px;
                 height: 50px;
-            }
-            .ques-left{
-                float: left;
-            }
-            .ques-left2{
-                float: left;
-            }
-            .ques-left3{
-                float: left;
-            }
-            .ques-left4{
-                float: left;
-                width: 1500px;
-            }
-            .right .grid input[type=button] {
-                float: left;
-                margin-top: 20px;
-                height: 30px;
-                margin-top: 50px;
-            }
-             .right .grid h1 {
-                float: left;
-                width: 400px;
-                margin-top: 50px;
+                color: white;
+                background: green;
+                margin-left: 700px;
+                border-radius: 10px;
             }
         </style>
     </head>
     <body>
         <div class="topnav">
-             <a href="#about"></a>
+            <a href="#about"></a>
              <a href="#home"><%= request.getSession().getAttribute("uname").toString() %></a>
             <a href="#contact"></a>
-           <div class="search-container">
+            <div class="search-container">
               <form action="SearchServlet">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
@@ -194,68 +190,61 @@
         <div class ="left">
             <div class = "left-top">
                 <ol class = "nav-links">
-                    <li  class="active">
+                    <li>
                         <a href="Home.jsp"><strong>Home</strong></a>
                     </li><br>
                  Public
                     <br>
-                    <li>
-                        <a href="tags.jsp">Tags</a>
+                   <br>
+                    <li class="active">
+                        <a href="users.jsp"><strong>Users</strong></a>
                     </li><br>
+                    
                     <li>
-                        <a href="Uuser.jsp"><strong>Users</strong></a>
+                        <a href="Ucommunities.jsp"><strong>Communities</strong></a>
                     </li><br>
-                    <li>
-                        <a href="jobs.jsp"><strong>Jobs</strong></a>
-                    </li><br>
-                     <li>
-                        <a href="joincommunity.jsp"><strong>Join Communities</strong></a>
-                    </li>
+                     
                 </ol>
             </div>
         </div>
+           
         <div class = "right">
-            <div class = "grid">
-                <h1>Top Questions</h1>
-                <input type ="button" value = "Ask Question" name = "askques">
-                <div class = "quesdiv">
-                 <%
-                     try{
-                        Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
-                        PreparedStatement ps = con.prepareStatement("select * from quesHome");
-                        ResultSet rs = ps.executeQuery();
-                        while(rs.next()){
-                     %>
-                    <div class ="ques">
-                            <div class = "ques-left4">
-                                <a href ="<%=rs.getString(5) %>"><%= rs.getString(4) %></a><br><%= rs.getString(6) %>
-                            </div>
-                            <div class = "ques-left">
-                                &nbsp;&nbsp;&nbsp;<%= rs.getString(1) %> <br>Votes&nbsp;&nbsp;&nbsp;
-                            </div>
-                            <div class = "ques-left2">
-                                 &nbsp;&nbsp;&nbsp;<%= rs.getString(2) %> <br>Answers &nbsp;&nbsp;&nbsp;
-                            </div>
-                            <div class = "ques-left3">
-                                 &nbsp;&nbsp;&nbsp;<%= rs.getString(3) %> <br>views &nbsp;&nbsp;&nbsp;
-                            </div>
-                            
-                            
-                            
+            <div class ="grid">
+                <div class="set"><strong>Top Communities</strong></div><br>
+                <%
+                    try{
+                          Class.forName("com.mysql.cj.jdbc.Driver");
+                          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
+                          PreparedStatement ps = con.prepareStatement("select * from register where userType=?");
+                          ps.setString(1,"user");
+                          ResultSet rs = ps.executeQuery();
+                          while(rs.next()){
+                              %>
+                              <br>
+                              <%
+                %>
+                <div class="comm"><br>
+                        &nbsp;&nbsp;<span>User Name:<strong><%= rs.getString(3) %></strong></span><br><br>
+                        &nbsp;&nbsp;<span>First Name<%= rs.getString(1) %></span><br><br>
+                        &nbsp;&nbsp;<span>Last Name: <%= rs.getString(2) %></span><br><br>
+                       
                     </div>
-                    <%
-                          }
+                    <%  if(rs.next()){%>
+                     <div class="comm1"><br>
+                         &nbsp;&nbsp;<span>User Name:<strong><%= rs.getString(3) %></strong></span><br><br>
+                        &nbsp;&nbsp;<span>First Name<%= rs.getString(1) %></span><br><br>
+                        &nbsp;&nbsp;<span>Last Name<%= rs.getString(2) %></span><br><br>
+                       
+                    </div>
+                <%}
+                     }
                         }
-                        catch(Exception e){
-                            System.out.println(e);
-                        }
-                        %>        
-                </div>
-          </div>          
-        </div>
-        <div>
-            
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
+                    %>
+            </div> 
         </div>
     </body>
 </html>
+

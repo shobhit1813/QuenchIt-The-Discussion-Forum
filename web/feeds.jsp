@@ -153,7 +153,7 @@ and open the template in the editor.
                         <a href="tags.jsp">Tags</a>
                     </li><br>
                     <li>
-                        <a href="users.jsp"><strong>Users</strong></a>
+                        <a href="Uuser.jsp"><strong>Users</strong></a>
                     </li><br>
                     <li>
                         <a href="jobs.jsp"><strong>Jobs</strong></a>
