@@ -167,7 +167,7 @@
             .fixedbutton{
                 position: fixed;
                 bottom: 0px;
-                width: 100px;
+                width: 150px;
                 height: 50px;
                 color: white;
                 background: green;

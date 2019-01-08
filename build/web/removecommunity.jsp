@@ -166,7 +166,6 @@
                
             }
             .fixedbutton{
-                position: fixed;
                 bottom: 0px;
                 width: 100px;
                 height: 50px;
@@ -245,9 +244,10 @@
                         System.out.println(e);
                     }
                     %>
-            </div> 
+            </div>  
+            <input type="submit" class="fixedbutton" value="Submit" name="submit">
+      </form>
         </div>
-       <input type="submit" class="fixedbutton" value="Submit" name="submit">
-      </form> 
+       
     </body>
 </html>
