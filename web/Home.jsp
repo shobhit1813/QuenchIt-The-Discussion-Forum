@@ -220,7 +220,7 @@
         <div class = "right">
             <div class = "grid">
                 <h1>Top Questions</h1>
-                <input type ="button" value = "Ask Question" name = "askques">
+                <a href="askques.jsp"><input type ="button" value = "Ask Question" name = "askques"></a>
                 <div class = "quesdiv">
                  <%
                      try{
