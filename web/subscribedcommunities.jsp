@@ -232,7 +232,7 @@
         <div class = "right">
             <div class = "grid">
                 <h1>Communities You are Member of</h1>
-                <input type ="button" value = "Ask Question" name = "askques">
+                
                 <div class = "quesdiv">
                  <%
                      String comm[]=new String[8];
