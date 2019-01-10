@@ -203,6 +203,9 @@
                         <a href="tags.jsp">Tags</a>
                     </li><br>
                     <li>
+                        <a href="subscribedcommunities.jsp">Your Communities</a>
+                    </li><br>
+                    <li>
                         <a href="Uuser.jsp"><strong>Users</strong></a>
                     </li><br>
                     <li>

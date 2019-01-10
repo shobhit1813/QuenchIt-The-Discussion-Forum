@@ -1,4 +1,10 @@
 <%-- 
+    Document   : subscribedcommunities
+    Created on : Jan 10, 2019, 6:13:38 PM
+    Author     : shobhit
+--%>
+
+<%-- 
     Document   : Home
     Created on : Jan 2, 2019, 7:35:39 PM
     Author     : shobhit
@@ -24,7 +30,7 @@
                 position: fixed;
                 margin-top: 50px;
                 width: 200px;
-                height: 1000px;
+                height: 700px;
                 background: #fff;
                 float: left;
                 margin-left: -10px;
@@ -175,6 +181,12 @@
                 width: 400px;
                 margin-top: 50px;
             }
+            .right .grid .comm{
+                float: left;
+                width: 400px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 100px;
         </style>
     </head>
     <body>
@@ -194,7 +206,7 @@
         <div class ="left">
             <div class = "left-top">
                 <ol class = "nav-links">
-                    <li  class="active">
+                    <li>
                         <a href="Home.jsp"><strong>Home</strong></a>
                     </li><br>
                  Public
@@ -202,7 +214,7 @@
                     <li>
                         <a href="tags.jsp">Tags</a>
                     </li><br>
-                    <li>
+                    <li class="active">
                         <a href="subscribedcommunities.jsp">Your Communities</a>
                     </li><br>
                     <li>
@@ -219,36 +231,39 @@
         </div>
         <div class = "right">
             <div class = "grid">
-                <h1>Top Questions</h1>
+                <h1>Communities You are Member of</h1>
                 <input type ="button" value = "Ask Question" name = "askques">
                 <div class = "quesdiv">
                  <%
+                     String comm[]=new String[8];
+                     comm[0]="javascript";
+                     comm[1]="java";
+                     comm[2]="cplusplus";
+                     comm[3]="c";
+                     comm[4]="node";
+                     comm[5]="linux";
+                     comm[6]="csharp";
+                     comm[7]="python";
+                     
+                     String username=request.getSession().getAttribute("uname").toString();
                      try{
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
-                        PreparedStatement ps = con.prepareStatement("select * from quesHome");
-                        ResultSet rs = ps.executeQuery();
-                        while(rs.next()){
+                        for(int i=0;i < comm.length;i++){
+                            PreparedStatement ps = con.prepareStatement("select * from "+comm[i]+"com where user =? and  status=?");
+                            ps.setString(1,username);
+                            ps.setString(2,"true");
+                            ResultSet rs = ps.executeQuery();
+                            if(rs.next()){
                      %>
-                    <div class ="ques">
-                            <div class = "ques-left4">
-                                <a href ="<%=rs.getString(5) %>"><%= rs.getString(4) %></a><br><%= rs.getString(6) %>
-                            </div>
-                            <div class = "ques-left">
-                                &nbsp;&nbsp;&nbsp;<%= rs.getString(1) %> <br>Votes&nbsp;&nbsp;&nbsp;
-                            </div>
-                            <div class = "ques-left2">
-                                 &nbsp;&nbsp;&nbsp;<%= rs.getString(2) %> <br>Answers &nbsp;&nbsp;&nbsp;
-                            </div>
-                            <div class = "ques-left3">
-                                 &nbsp;&nbsp;&nbsp;<%= rs.getString(3) %> <br>views &nbsp;&nbsp;&nbsp;
-                            </div>
-                            
-                            
-                            
+                     <div class="comm">
+                         <br>
+                         &nbsp; &nbsp;&nbsp;<strong><%= comm[i] %></strong><br><br>
                     </div>
+                    <br><br>
                     <%
                           }
+                            }
                         }
                         catch(Exception e){
                             System.out.println(e);
