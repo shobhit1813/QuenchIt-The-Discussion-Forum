@@ -223,7 +223,8 @@ and open the template in the editor.
                     try{
                           Class.forName("com.mysql.cj.jdbc.Driver");
                           Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
-                          PreparedStatement ps = con.prepareStatement("select * from communities");
+                          PreparedStatement ps = con.prepareStatement("select * from communities where status=?");
+                          ps.setString(1,"true");
                           ResultSet rs = ps.executeQuery();
                           while(rs.next()){
                 %>
