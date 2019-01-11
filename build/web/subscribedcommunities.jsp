@@ -258,7 +258,7 @@
                      %>
                      <div class="comm">
                          <br>
-                         &nbsp; &nbsp;&nbsp;<strong><a href="quesanscomm.jsp"><%= comm[i] %></a></strong><br><br>
+                         &nbsp; &nbsp;&nbsp;<strong><a href="<%= comm[i]%>quesans.jsp"><%= comm[i] %></a></strong><br><br>
                     </div>
                     <br><br>
                     <%

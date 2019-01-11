@@ -1,14 +1,9 @@
 <%-- 
-    Document   : subscribedcommunities
-    Created on : Jan 10, 2019, 6:13:38 PM
+    Document   : javaquesans
+    Created on : Jan 11, 2019, 10:09:29 AM
     Author     : shobhit
 --%>
 
-<%-- 
-    Document   : Home
-    Created on : Jan 2, 2019, 7:35:39 PM
-    Author     : shobhit
---%>
 
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -18,7 +13,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home Page</title>
+        <title>JAVA Question Answer</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
@@ -30,7 +25,7 @@
                 position: fixed;
                 margin-top: 50px;
                 width: 200px;
-                height: 700px;
+                height: 1000px;
                 background: #fff;
                 float: left;
                 margin-left: -10px;
@@ -180,13 +175,14 @@
                 float: left;
                 width: 400px;
                 margin-top: 50px;
+                
             }
-            .right .grid .comm{
-                float: left;
-                width: 400px;
-                border: 1px solid grey;
-                border-radius: 5px;
-                height: 100px;
+            .btn{
+                width: 150px;
+                background: green;
+                margin-bottom: 20px;
+            }
+            
         </style>
     </head>
     <body>
@@ -206,7 +202,7 @@
         <div class ="left">
             <div class = "left-top">
                 <ol class = "nav-links">
-                    <li>
+                    <li  class="active">
                         <a href="Home.jsp"><strong>Home</strong></a>
                     </li><br>
                  Public
@@ -214,7 +210,7 @@
                     <li>
                         <a href="tags.jsp">Tags</a>
                     </li><br>
-                    <li class="active">
+                    <li>
                         <a href="subscribedcommunities.jsp">Your Communities</a>
                     </li><br>
                     <li>
@@ -231,39 +227,33 @@
         </div>
         <div class = "right">
             <div class = "grid">
-                <h1>Communities You are Member of</h1>
-                
+                <h1>Top Questions</h1>
+                <a href="askques.jsp"><input type ="button" value = "Ask Question" name = "askques"></a>
                 <div class = "quesdiv">
                  <%
-                     String comm[]=new String[8];
-                     comm[0]="javascript";
-                     comm[1]="java";
-                     comm[2]="cplusplus";
-                     comm[3]="c";
-                     comm[4]="node";
-                     comm[5]="linux";
-                     comm[6]="csharp";
-                     comm[7]="python";
+                     String comm = "java";
+                     HttpSession nsession = request.getSession();
+                     nsession.setAttribute("comm",comm);
                      
-                     String username=request.getSession().getAttribute("uname").toString();
                      try{
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
-                        for(int i=0;i < comm.length;i++){
-                            PreparedStatement ps = con.prepareStatement("select * from "+comm[i]+"com where user =? and  status=?");
-                            ps.setString(1,username);
-                            ps.setString(2,"true");
-                            ResultSet rs = ps.executeQuery();
-                            if(rs.next()){
+                        PreparedStatement ps = con.prepareStatement("select * from questions where lang=?");
+                        ps.setString(1," java");
+                        ResultSet rs = ps.executeQuery();
+                        while(rs.next()){
                      %>
-                     <div class="comm">
-                         <br>
-                         &nbsp; &nbsp;&nbsp;<strong><a href="<%= comm[i]%>quesans.jsp"><%= comm[i] %></a></strong><br><br>
+                   <form action="ansreply.jsp" method="post">
+                     <div class ="ques">
+                            <div class = "ques-left4">
+                                <a href =""><%= rs.getString(2) %></a><br>
+                                <% nsession.setAttribute("qid",rs.getString(1)); nsession.setAttribute("ques",rs.getString(2)); %>
+                                <a href="ansreply.jsp"><input type="button" value="Reply" name="submit" class="btn"></a>
+                            </div>  
                     </div>
-                    <br><br>
+                   </form>              
                     <%
                           }
-                            }
                         }
                         catch(Exception e){
                             System.out.println(e);

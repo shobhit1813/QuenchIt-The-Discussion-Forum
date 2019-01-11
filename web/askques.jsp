@@ -34,7 +34,7 @@
     </head>
     <body>
     <center><h1>Put up the Question</h1></center>
-      <form action="AskQues" method="post">
+      <form action="AskQuestionServlet" method="post">
         <div class="main">
             <br><br>
             &nbsp;&nbsp;Ques: <textarea rows="4" cols="46" name="ques" ></textarea><br><br>

@@ -40,6 +40,14 @@
         <servlet-name>AskQues</servlet-name>
         <servlet-class>Controller.AskQues</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AskQuestionServlet</servlet-name>
+        <servlet-class>Controller.AskQuestionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReplyQuestionServlet</servlet-name>
+        <servlet-class>Controller.ReplyQuestionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
@@ -79,6 +87,14 @@
     <servlet-mapping>
         <servlet-name>AskQues</servlet-name>
         <url-pattern>/AskQues</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AskQuestionServlet</servlet-name>
+        <url-pattern>/AskQuestionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReplyQuestionServlet</servlet-name>
+        <url-pattern>/ReplyQuestionServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author shobhit
  */
-public class AskQues extends HttpServlet {
+public class ReplyQuestionServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,14 +35,14 @@ public class AskQues extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String question = request.getParameter("ques");
-        String lang = request.getParameter("communities");
+        String ans = request.getParameter("ans");
         try  {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
-            PreparedStatement ps = con.prepareStatement("insert into questions(ques,lang) values(?,?)");
-            ps.setString(1,question);
-            ps.setString(2,lang);
+            PreparedStatement ps = con.prepareStatement("insert into answers values(?,?,?)");
+            ps.setString(1,ans);
+            ps.setString(2,request.getSession().getAttribute("qid").toString());
+            ps.setString(3,request.getSession().getAttribute("comm").toString());
             int i = ps.executeUpdate();
             if(i > 0){
                 RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
