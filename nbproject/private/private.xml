@@ -6,8 +6,11 @@
             <file>file:/home/shobhit/NetBeansProjects/QuenchIt/web/askques.jsp</file>
             <file>file:/home/shobhit/NetBeansProjects/QuenchIt/web/Home.jsp</file>
             <file>file:/home/shobhit/NetBeansProjects/QuenchIt/web/login.html</file>
-            <file>file:/home/shobhit/NetBeansProjects/QuenchIt/src/java/Controller/AskQues.java</file>
-            <file>file:/home/shobhit/NetBeansProjects/QuenchIt/web/joincommunity.jsp</file>
+            <file>file:/home/shobhit/NetBeansProjects/QuenchIt/src/java/Controller/ReplyQuestionServlet.java</file>
+            <file>file:/home/shobhit/NetBeansProjects/QuenchIt/web/ansreply.jsp</file>
+            <file>file:/home/shobhit/NetBeansProjects/QuenchIt/web/javaquesans.jsp</file>
+            <file>file:/home/shobhit/NetBeansProjects/QuenchIt/src/java/Controller/AskQuestionServlet.java</file>
+            <file>file:/home/shobhit/NetBeansProjects/QuenchIt/web/3ans.jsp</file>
         </group>
     </open-files>
 </project-private>

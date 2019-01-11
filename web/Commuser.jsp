@@ -4,6 +4,10 @@
     Author     : shobhit
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%-- 
@@ -134,6 +138,23 @@
               width: 500px;
               margin-left: 150px;
             }
+             .right .grid .comm{
+                float: left;
+                width: 500px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 150px;
+            }
+            .right .grid .comm1{
+                
+                margin-left: 50px;
+                float:left;
+                width: 500px;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 150px;
+               
+            }
           
         </style>
     </head>
@@ -174,10 +195,33 @@
             </div>
         </div>
         <div class = "right">
-            
-        </div>
-        <div>
-            
-        </div>
+            <div class = "grid">
+                <h1>Your Users</h1>
+                 <%
+                     try{
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
+                        PreparedStatement ps = con.prepareStatement("select * from "+request.getSession().getAttribute("uname").toString()+"com where status=?");
+                        ps.setString(1,"true");
+                        ResultSet rs = ps.executeQuery();
+                        while(rs.next()){
+                     %>
+                    <div class="comm"><br>
+                        &nbsp;&nbsp;<span>User Name:<strong><%= rs.getString(1) %></strong></span><br><br>
+                    </div>
+                    <%  if(rs.next()){%>
+                     <div class="comm1"><br>
+                        &nbsp;&nbsp;<span>User Name:<strong><%= rs.getString(1) %></strong></span><br><br>
+                    </div>
+                    <%}
+                          }
+                        }
+                        catch(Exception e){
+                            System.out.println(e);
+                        }
+                        %>        
+                </div>
+          </div>
+        
     </body>
 </html>
