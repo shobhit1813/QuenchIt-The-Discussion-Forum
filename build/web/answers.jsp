@@ -1,4 +1,10 @@
 <%-- 
+    Document   : answers
+    Created on : Jan 12, 2019, 5:47:44 PM
+    Author     : shobhit
+--%>
+
+<%-- 
     Document   : javaquesans
     Created on : Jan 11, 2019, 10:09:29 AM
     Author     : shobhit
@@ -241,17 +247,13 @@
                         PreparedStatement ps = con.prepareStatement("select * from questions where lang=?");
                         ps.setString(1," java");
                         ResultSet rs = ps.executeQuery();
-                       
                         while(rs.next()){
-                            String qid=rs.getString(1);
-                            String lang = rs.getString(3);
-                            System.out.println(qid+" ");
                      %>
                    <form action="ansreply.jsp" method="post">
                      <div class ="ques">
                             <div class = "ques-left4">
-                                <a href ="answers.jsp?qid="<%qid%>><%= rs.getString(2)%></a><br>
-                                
+                                <a href ="answers.jsp"><%= rs.getString(2) %></a><br>
+                                <% nsession.setAttribute("qid",rs.getString(1)); nsession.setAttribute("ques",rs.getString(2)); %>
                                 <a href="ansreply.jsp"><input type="button" value="Reply" name="submit" class="btn"></a>
                             </div>  
                     </div>
