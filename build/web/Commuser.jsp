@@ -211,7 +211,7 @@
                     </div>
                     <%  if(rs.next()){%>
                      <div class="comm1"><br>
-                        &nbsp;&nbsp;<span>User Name:<strong><%= rs.getString(1) %></strong></span><br><br>
+                        &nbsp;&nbsp;<span>User Name:<strong><%= rs.getString(1) %></strong></span><br><br> 
                     </div>
                     <%}
                           }
