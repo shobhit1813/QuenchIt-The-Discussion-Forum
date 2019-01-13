@@ -250,8 +250,8 @@
                    <form action="ansreply.jsp" method="post">
                      <div class ="ques">
                             <div class = "ques-left4">
-                                <a href ="answers.jsp?qid="<%qid%>><%= rs.getString(2)%></a><br>
-                                
+                                <a href ="answers.jsp"><%= rs.getString(2)%></a><br>
+                                <% nsession.setAttribute("qid",rs.getString(1)); nsession.setAttribute("lang",rs.getString(3)); %>
                                 <a href="ansreply.jsp"><input type="button" value="Reply" name="submit" class="btn"></a>
                             </div>  
                     </div>

@@ -233,29 +233,28 @@
         </div>
         <div class = "right">
             <div class = "grid">
-                <h1>Top Questions</h1>
+                <h1>All Answers</h1>
                 <a href="askques.jsp"><input type ="button" value = "Ask Question" name = "askques"></a>
                 <div class = "quesdiv">
                  <%
-                     String comm = "java";
-                     HttpSession nsession = request.getSession();
-                     nsession.setAttribute("comm",comm);
-                     
                      try{
-                        Class.forName("com.mysql.cj.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
-                        PreparedStatement ps = con.prepareStatement("select * from questions where lang=?");
-                        ps.setString(1," java");
-                        ResultSet rs = ps.executeQuery();
-                        while(rs.next()){
+                         System.out.println("chk="+request.getSession().getAttribute("qid").toString());
+                            int count = 1; 
+                            Class.forName("com.mysql.cj.jdbc.Driver");
+                            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
+                            PreparedStatement ps =con.prepareStatement("Select answer from answers a join questions q where q.qid=? and  q.lang=?");
+                            ps.setString(1,request.getSession().getAttribute("qid").toString());
+                            ps.setString(2,request.getSession().getAttribute("lang").toString());
+                            ResultSet rs = ps.executeQuery();
+                            while(rs.next()){
+                     
                      %>
                    <form action="ansreply.jsp" method="post">
                      <div class ="ques">
                             <div class = "ques-left4">
-                                <a href ="answers.jsp"><%= rs.getString(2) %></a><br>
-                                <% nsession.setAttribute("qid",rs.getString(1)); nsession.setAttribute("ques",rs.getString(2)); %>
-                                <a href="ansreply.jsp"><input type="button" value="Reply" name="submit" class="btn"></a>
-                            </div>  
+                                <%= count%><p><%= rs.getString(1) %></p>
+                         
+                            </div><br>
                     </div>
                    </form>              
                     <%
