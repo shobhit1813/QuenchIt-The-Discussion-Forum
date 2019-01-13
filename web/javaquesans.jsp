@@ -243,9 +243,7 @@
                         ResultSet rs = ps.executeQuery();
                        
                         while(rs.next()){
-                            String qid=rs.getString(1);
-                            String lang = rs.getString(3);
-                            System.out.println(qid+" ");
+                            
                      %>
                    <form action="ansreply.jsp" method="post">
                      <div class ="ques">
