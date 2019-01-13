@@ -234,7 +234,7 @@
         <div class = "right">
             <div class = "grid">
                 <h1>All Answers</h1>
-                <a href="askques.jsp"><input type ="button" value = "Ask Question" name = "askques"></a>
+                
                 <div class = "quesdiv">
                  <%
                      try{

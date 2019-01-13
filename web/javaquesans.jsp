@@ -234,14 +234,14 @@
                      String comm = "java";
                      HttpSession nsession = request.getSession();
                      nsession.setAttribute("comm",comm);
-                     
+                     char urlvar ='a';
                      try{
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
                         PreparedStatement ps = con.prepareStatement("select * from questions where lang=?");
                         ps.setString(1," java");
                         ResultSet rs = ps.executeQuery();
-                       
+                        int i = -99;
                         while(rs.next()){
                             
                      %>
@@ -249,7 +249,7 @@
                      <div class ="ques">
                             <div class = "ques-left4">
                                 <a href ="answers.jsp"><%= rs.getString(2)%></a><br>
-                                <% nsession.setAttribute("qid",rs.getString(1)); nsession.setAttribute("lang",rs.getString(3)); %>
+                                <% nsession.setAttribute("qid"+urlvar+i,rs.getString(1)); nsession.setAttribute("lang",rs.getString(3)); %>
                                 <a href="ansreply.jsp"><input type="button" value="Reply" name="submit" class="btn"></a>
                             </div>  
                     </div>
