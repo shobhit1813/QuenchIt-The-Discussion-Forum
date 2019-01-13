@@ -234,7 +234,8 @@
                      String comm = "java";
                      HttpSession nsession = request.getSession();
                      nsession.setAttribute("comm",comm);
-                     char urlvar ='a';
+                     //String lang = request.getSession().getAttribute("language").toString();
+                     //char urlvar ='a';
                      try{
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Quench?useSSL=true&verifyServerCertificate=false&allowMultiQueries=true","root","1810");
