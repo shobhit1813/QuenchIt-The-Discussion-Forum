@@ -249,7 +249,7 @@
                      <div class ="ques">
                             <div class = "ques-left4">
                                 <a href ="answers.jsp"><%= rs.getString(2)%></a><br>
-                                <% nsession.setAttribute("qid"+urlvar+i,rs.getString(1)); nsession.setAttribute("lang",rs.getString(3)); %>
+                                <% nsession.setAttribute("qid",rs.getString(1)); nsession.setAttribute("lang",rs.getString(3)); %>
                                 <a href="ansreply.jsp"><input type="button" value="Reply" name="submit" class="btn"></a>
                             </div>  
                     </div>

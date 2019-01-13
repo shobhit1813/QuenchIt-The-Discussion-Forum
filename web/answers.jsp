@@ -252,7 +252,7 @@
                    <form action="ansreply.jsp" method="post">
                      <div class ="ques">
                             <div class = "ques-left4">
-                                <%= count%><p><%= rs.getString(1) %></p>
+                                <%= count++%><p><%= rs.getString(1) %></p>
                          
                             </div><br>
                     </div>
